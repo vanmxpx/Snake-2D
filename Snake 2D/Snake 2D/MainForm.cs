@@ -128,7 +128,7 @@ namespace Snake_2D
 
         private void MenuStrip_Opened(object sender, EventArgs e)
         {
-            if (!pause) Pause();
+            if (!pause && !gameover) Pause();
         }
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,7 +138,7 @@ namespace Snake_2D
 
         private void resumeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Resume();
+            if (!gameover) Resume();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
