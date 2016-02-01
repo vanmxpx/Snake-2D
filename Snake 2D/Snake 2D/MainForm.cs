@@ -97,10 +97,10 @@ namespace Snake_2D
                 else Pause();
             }
 
-            if (e.KeyCode == Keys.Left && direction !=2) direction = 1;
-            if (e.KeyCode == Keys.Right && direction != 1) direction = 2;
-            if (e.KeyCode == Keys.Up && direction != 4) direction = 3;
-            if (e.KeyCode == Keys.Down && direction != 3) direction = 4;
+            if (e.KeyCode == Keys.Left && s._direction !=2) direction = 1;
+            if (e.KeyCode == Keys.Right && s._direction != 1) direction = 2;
+            if (e.KeyCode == Keys.Up && s._direction != 4) direction = 3;
+            if (e.KeyCode == Keys.Down && s._direction != 3) direction = 4;
         }
 
         private void MainCanvas_Paint(object sender, PaintEventArgs e)
@@ -115,7 +115,8 @@ namespace Snake_2D
 
         private void timerMove_Tick(object sender, EventArgs e)
         {
-            s.Move(direction);
+            s._direction = direction;
+            s.Move();
             if (s.CheckEat(a.X, a.Y))
             {
                 score ++;
