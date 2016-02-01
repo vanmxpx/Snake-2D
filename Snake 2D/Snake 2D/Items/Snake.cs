@@ -12,7 +12,7 @@ namespace Snake_2D.Items
     public class Snake
     {
         public List<SnakePart> snake = new List<SnakePart>();
-
+        public int _direction { get; set; }
         //Constructor
         public Snake()
         {
@@ -23,18 +23,18 @@ namespace Snake_2D.Items
 
         #region Snake actions
 
-        public void Move(int direction)
+        public void Move()
         {
             for (int i = snake.Count - 1; i >= 0; i--)
             {
-                if (i != 0 && direction !=0)
+                if (i != 0 && _direction !=0)
                 {
                     snake[i].X = snake[i - 1].X;
                     snake[i].Y = snake[i - 1].Y;
                 }
                 else
                 {
-                    switch (direction)
+                    switch (_direction)
                     {
                         case 1:
                             snake[0].X -= MainForm.WIDTH;
